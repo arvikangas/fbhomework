@@ -1,0 +1,1 @@
+﻿dotnet ef migrations add --output-dir EF/Migrations --project ../FuseboxHomework.Core.csproj --startup-project ../../FuseboxHomework.Web/FuseboxHomework.Web.csproj Initial 

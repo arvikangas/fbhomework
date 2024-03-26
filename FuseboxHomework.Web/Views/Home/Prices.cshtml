@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model PricesViewModel
+
+<form asp-controller="Home" asp-action="Prices" method="get">
+    <input type="date" name="date" value="@Model.date.ToString("yyyy-MM-dd")" />
+    <button type="submit">Search</button>
+</form>
+
+@if(Model.Prices.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Datetime</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var price in Model.Prices)
+            {
+                var c = price.Cheapers ? "bg-success" : "";
+                <tr class="@c">
+                    <td>@price.DateTime</td>
+                    <td>@price.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
